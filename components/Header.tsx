@@ -1,20 +1,23 @@
 import Image from "next/image";
 import Link from "next/link";
+import logoFarmacias from "@/logo/logo-farmacias.gif";
 
 const navItems = [
+  { label: "Início", href: "/" },
+  { label: "Pesquisar Medicamentos", href: "#pesquisa" },
   { label: "Farmácias", href: "#farmacias" },
-  { label: "Categorias", href: "#categorias" },
-  { label: "Pesquisar", href: "#pesquisa" },
+  { label: "Dicas de Saúde", href: "#dicas" },
+  { label: "Sobre", href: "#sobre" },
 ];
 
 export function Header() {
   return (
-    <header className="sticky top-0 z-50 border-b border-slate-100 bg-white/90 backdrop-blur-xl">
-      <div className="mx-auto flex h-20 w-full max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
-        <Link href="/" className="flex items-center gap-3" aria-label="Farmácias Angola">
-          <span className="relative block h-9 w-9 sm:h-10 sm:w-10 lg:h-12 lg:w-12">
+    <header className="border-b border-slate-200 bg-white">
+      <div className="flex min-h-[72px] items-center justify-between gap-4 px-5 py-3 sm:px-8 lg:min-h-[74px] lg:px-12">
+        <Link href="/" className="flex shrink-0 items-center gap-3" aria-label="Farmácias Angola">
+          <span className="relative block h-10 w-9 sm:h-12 sm:w-10">
             <Image
-              src="/images/logo-farmacias.png"
+              src={logoFarmacias}
               alt="Farmácias Angola"
               fill
               unoptimized
@@ -23,24 +26,48 @@ export function Header() {
               sizes="48px"
             />
           </span>
-          <span className="text-xl font-black tracking-normal text-slate-950 sm:text-2xl">Farmácias</span>
+          <span className="text-xl font-extrabold tracking-normal text-slate-950 sm:text-2xl">Farmácias</span>
         </Link>
 
-        <nav className="hidden items-center gap-8 text-sm font-semibold text-slate-700 md:flex">
-          {navItems.map((item) => (
-            <a key={item.label} href={item.href} className="transition hover:text-[#0B7A5A]">
+        <nav className="hidden items-center gap-7 text-sm font-semibold text-slate-700 lg:flex">
+          {navItems.map((item, index) => (
+            <a
+              key={item.label}
+              href={item.href}
+              className={`border-b-2 py-7 transition ${
+                index === 0 ? "border-[#007a63] text-[#007a63]" : "border-transparent hover:text-[#007a63]"
+              }`}
+            >
               {item.label}
             </a>
           ))}
         </nav>
 
-        <a
-          href="#pesquisa"
-          className="rounded-full bg-[#0B7A5A] px-4 py-2.5 text-sm font-bold text-white shadow-lg shadow-emerald-900/10 transition hover:bg-[#09694d] sm:px-5"
-        >
-          Pesquisar
-        </a>
+        <div className="flex items-center gap-2 sm:gap-3">
+          <button className="hidden h-9 items-center gap-2 rounded-md border border-slate-200 bg-white px-3 text-xs font-bold text-slate-800 shadow-sm sm:flex">
+            <PinIcon />
+            Luanda, Angola
+          </button>
+          <button className="hidden h-9 rounded-md border border-slate-200 bg-white px-3 text-xs font-bold text-slate-800 shadow-sm md:block">
+            PT
+          </button>
+          <a
+            href="#pesquisa"
+            className="rounded-md bg-[#007a63] px-4 py-2.5 text-sm font-bold text-white shadow-lg shadow-emerald-900/10 transition hover:bg-[#006651]"
+          >
+            Entrar
+          </a>
+        </div>
       </div>
     </header>
+  );
+}
+
+function PinIcon() {
+  return (
+    <svg aria-hidden="true" className="size-4" fill="none" stroke="currentColor" strokeWidth="2.2" viewBox="0 0 24 24">
+      <path d="M12 21s7-5.1 7-11a7 7 0 1 0-14 0c0 5.9 7 11 7 11Z" />
+      <circle cx="12" cy="10" r="2.5" />
+    </svg>
   );
 }

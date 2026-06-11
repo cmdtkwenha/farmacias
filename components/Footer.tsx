@@ -1,61 +1,77 @@
 import Image from "next/image";
 import Link from "next/link";
-
-const footerLinks = [
-  "Farmácias parceiras",
-  "Medicamentos populares",
-  "Ajuda",
-  "Contacto",
-];
+import logoFarmacias from "@/logo/logo-farmacias.gif";
 
 export function Footer() {
   return (
-    <footer className="border-t border-slate-100 bg-white">
-      <div className="mx-auto grid w-full max-w-7xl gap-8 px-4 py-10 sm:px-6 lg:grid-cols-[1.2fr_0.8fr] lg:px-8 lg:py-12">
+    <footer id="sobre" className="px-6 pb-6 lg:px-10">
+      <div className="grid items-center gap-5 rounded-2xl bg-gradient-to-r from-[#edf7f5] to-[#e3f2f0] p-5 sm:grid-cols-[1fr_auto] lg:grid-cols-[0.9fr_1fr_auto]">
+        <div className="hidden items-end gap-3 lg:flex">
+          <span className="relative h-16 w-14">
+            <Image src={logoFarmacias} alt="" fill unoptimized className="object-contain" sizes="56px" />
+          </span>
+          <div className="h-12 w-24 rounded-t-2xl bg-white/70 shadow-inner" />
+        </div>
+
         <div>
-          <Link href="/" className="flex items-center gap-3" aria-label="Farmácias Angola">
-            <span className="relative block h-9 w-9 sm:h-10 sm:w-10">
-              <Image
-                src="/images/logo-farmacias.png"
-                alt="Farmácias Angola"
-                fill
-                unoptimized
-                className="object-contain"
-                sizes="40px"
-              />
+          <Link href="/" className="inline-flex items-center gap-3" aria-label="Farmácias Angola">
+            <span className="relative block h-10 w-9">
+              <Image src={logoFarmacias} alt="Farmácias Angola" fill unoptimized className="object-contain" sizes="40px" />
             </span>
-            <span className="text-xl font-black text-slate-950">Farmácias</span>
+            <span className="text-lg font-black text-slate-950">Farmácias</span>
           </Link>
-          <p className="mt-5 max-w-md text-sm leading-6 text-slate-600">
-            Uma forma simples e moderna de encontrar medicamentos, reservar em farmácias com stock e recolher quando lhe for conveniente.
+          <h2 className="mt-3 text-lg font-black text-slate-950">Leve a Farmácias consigo</h2>
+          <p className="mt-2 text-sm font-medium text-slate-600">
+            Pesquise, reserve e acompanhe a sua recolha com uma experiência simples e segura.
           </p>
-          <p className="mt-4 text-sm font-black text-[#0B7A5A]">Encontre. Reserve. Recolha.</p>
         </div>
 
-        <div className="grid gap-6 sm:grid-cols-2">
-          <div>
-            <h2 className="text-sm font-black uppercase text-slate-950">Explorar</h2>
-            <div className="mt-4 grid gap-3">
-              {footerLinks.map((link) => (
-                <a key={link} href="#pesquisa" className="text-sm font-semibold text-slate-600 transition hover:text-[#0B7A5A]">
-                  {link}
-                </a>
-              ))}
-            </div>
+        <div className="flex flex-wrap items-center gap-5 text-sm font-bold text-[#007a63]">
+          <div className="flex items-center gap-2">
+            <BellIcon />
+            Notificações rápidas
           </div>
-
-          <div>
-            <h2 className="text-sm font-black uppercase text-slate-950">Luanda primeiro</h2>
-            <p className="mt-4 text-sm leading-6 text-slate-600">
-              Visualização inicial com dados mockados para validar a experiência premium da homepage.
-            </p>
+          <div className="flex items-center gap-2">
+            <CalendarIcon />
+            Reservas fáceis
+          </div>
+          <div className="flex items-center gap-2">
+            <ClockIcon />
+            Histórico
           </div>
         </div>
-      </div>
 
-      <div className="border-t border-slate-100 px-4 py-5 text-center text-xs font-semibold text-slate-500">
-        Farmácias Angola. Plataforma visual em desenvolvimento.
+        <button className="rounded-lg bg-[#005d52] px-7 py-3 text-sm font-black text-white shadow-lg transition hover:bg-[#004b42]">
+          Descarregar app
+        </button>
       </div>
     </footer>
+  );
+}
+
+function BellIcon() {
+  return (
+    <svg aria-hidden="true" className="size-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+      <path d="M18 8a6 6 0 1 0-12 0c0 7-3 7-3 7h18s-3 0-3-7" />
+      <path d="M10 19a2 2 0 0 0 4 0" />
+    </svg>
+  );
+}
+
+function CalendarIcon() {
+  return (
+    <svg aria-hidden="true" className="size-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+      <rect x="4" y="5" width="16" height="15" rx="2" />
+      <path d="M8 3v4M16 3v4M4 10h16M9 15l2 2 4-5" />
+    </svg>
+  );
+}
+
+function ClockIcon() {
+  return (
+    <svg aria-hidden="true" className="size-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+      <circle cx="12" cy="12" r="8" />
+      <path d="M12 8v5l3 2" />
+    </svg>
   );
 }
