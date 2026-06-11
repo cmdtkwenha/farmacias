@@ -19,8 +19,8 @@ export function Hero() {
           <SearchBar />
         </div>
 
-        <div className="relative flex min-h-[360px] items-end justify-center lg:min-h-[480px] lg:self-end">
-          <div className="absolute bottom-0 left-1/2 h-[360px] w-[360px] -translate-x-1/2 rounded-full bg-[#dff3ef] sm:h-[420px] sm:w-[420px] lg:h-[430px] lg:w-[430px]" />
+        <div className="relative flex min-h-[360px] items-center justify-center lg:min-h-[480px] lg:self-end">
+          <div className="absolute left-1/2 top-0 h-[360px] w-[360px] -translate-x-1/2 rounded-full bg-[#dff3ef] sm:h-[420px] sm:w-[420px] lg:h-[430px] lg:w-[430px]" />
           <div className="relative z-10 h-[360px] w-full max-w-[390px] drop-shadow-[0_26px_42px_rgba(15,23,42,0.16)] sm:h-[420px] sm:max-w-[460px] lg:h-[480px] lg:max-w-[430px]">
                 <Image
                   src={familyHero}
@@ -28,7 +28,7 @@ export function Hero() {
                   fill
                   unoptimized
                   priority
-              className="object-contain object-bottom"
+              className="object-contain object-center mix-blend-multiply"
               sizes="(max-width: 1024px) 100vw, 30vw"
                 />
           </div>
@@ -50,39 +50,48 @@ function MapPanel() {
         <div className="absolute bottom-8 right-24 h-56 w-56 rounded-full bg-emerald-100/80 blur-sm" />
       </div>
 
-      <button className="absolute left-1/2 top-5 z-20 flex -translate-x-1/2 items-center gap-2 rounded-xl bg-white px-5 py-3 text-sm font-black text-slate-900 shadow-lg ring-1 ring-slate-200">
+      <button
+        data-map-search
+        className="absolute left-4 top-5 z-20 flex w-[136px] items-center justify-center gap-2 rounded-xl bg-white px-3 py-3 text-xs font-black text-slate-900 shadow-lg ring-1 ring-slate-200 xl:left-5"
+      >
         <SearchTinyIcon />
         Pesquisar nesta zona
       </button>
 
-      <MapMarker className="left-[14%] top-[28%]" />
-      <MapMarker className="left-[30%] top-[40%]" pin />
-      <MapMarker className="left-[17%] top-[53%]" />
-      <MapMarker className="left-[52%] top-[18%]" />
-      <MapMarker className="left-[48%] top-[73%]" />
-      <MapMarker className="left-[73%] top-[19%]" />
+      <MapMarker className="left-[14%] top-[31%]" />
+      <MapMarker className="left-[31%] top-[43%]" pin />
+      <MapMarker className="left-[18%] top-[58%]" />
+      <MapMarker className="left-[56%] top-[23%]" />
+      <MapMarker className="left-[47%] top-[76%]" />
+      <MapMarker className="left-[73%] top-[32%]" />
 
-      <div className="absolute left-[38%] top-[43%] z-30 w-48 rounded-xl bg-white p-4 shadow-[0_22px_55px_rgba(15,23,42,0.20)] ring-1 ring-slate-200">
+      <div
+        data-map-card
+        className="absolute right-1/2 top-[47%] z-30 w-[145px] rounded-xl bg-white p-3 shadow-[0_22px_55px_rgba(15,23,42,0.20)] ring-1 ring-slate-200"
+      >
         <div className="flex items-start justify-between">
           <div>
-            <h3 className="text-sm font-black text-slate-950">Farmácia Central</h3>
-            <p className="mt-2 text-sm font-bold text-[#007a63]">Aberto agora</p>
-            <p className="mt-2 text-sm text-slate-500">1,2 km de distância</p>
+            <h3 className="text-xs font-black text-slate-950 xl:text-sm">Farmácia Central</h3>
+            <p className="mt-2 text-xs font-bold text-[#007a63] xl:text-sm">Aberto agora</p>
+            <p className="mt-2 text-xs text-slate-500">1,2 km de distância</p>
           </div>
           <span className="mt-1 size-2 rounded-full bg-emerald-400" />
         </div>
-        <button className="mt-4 w-full rounded-lg bg-[#007a63] px-4 py-3 text-sm font-black text-white">Ver detalhes</button>
+        <button className="mt-3 w-full rounded-lg bg-[#007a63] px-3 py-2.5 text-xs font-black text-white xl:py-3">Ver detalhes</button>
       </div>
 
-      <aside className="absolute bottom-5 right-5 top-5 z-30 hidden w-[205px] rounded-2xl bg-white/95 p-5 shadow-[0_18px_50px_rgba(15,23,42,0.13)] ring-1 ring-slate-200 backdrop-blur xl:block">
+      <aside
+        data-map-filter
+        className="absolute right-4 top-4 z-30 w-[145px] rounded-2xl bg-white/95 p-4 shadow-[0_18px_50px_rgba(15,23,42,0.13)] ring-1 ring-slate-200 backdrop-blur xl:right-5 xl:top-5"
+      >
         <div className="flex items-center justify-between">
           <h2 className="text-sm font-black text-slate-950">Filtro</h2>
           <button className="text-[10px] font-bold text-slate-400">Limpar</button>
         </div>
-        <div className="mt-5 space-y-5">
+        <div className="mt-4 space-y-4 xl:mt-5 xl:space-y-5">
           <div>
             <p className="mb-2 text-xs font-black text-slate-800">Ordenar por</p>
-            <div className="rounded-lg border border-slate-200 px-3 py-3 text-xs font-bold text-slate-600">Mais perto</div>
+            <div className="rounded-lg border border-slate-200 px-3 py-2.5 text-xs font-bold text-slate-600 xl:py-3">Mais perto</div>
           </div>
           <div>
             <p className="mb-3 text-xs font-black text-slate-800">Disponibilidade</p>
