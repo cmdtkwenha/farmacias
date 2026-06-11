@@ -67,6 +67,28 @@ Must include:
 - Product categories
 - Reserve button
 
+## Homepage Design Lock
+
+The homepage shown in:
+
+logo/Homepage-Golden-Reference.png
+
+is the approved Farmácias homepage.
+
+Future changes must preserve:
+
+- Header
+- Hero layout
+- Family image position
+- Map position
+- Filter position
+- Search bar position
+- Hero spacing
+
+Only functionality may be added.
+
+No redesigns without explicit approval.
+
 ## Hero Image Rules
 
 Use:

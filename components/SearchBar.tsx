@@ -2,6 +2,7 @@ const quickSearches = ["Paracetamol", "Amoxicilina", "Vitamina C", "Panadol Extr
 
 export function SearchBar() {
   return (
+    // Approved Homepage Layout - Do Not Redesign
     <div id="pesquisa" className="mt-7">
       <form className="max-w-[430px] rounded-xl bg-white p-2 shadow-[0_16px_45px_rgba(15,23,42,0.12)] ring-1 ring-slate-200">
         <label className="flex min-h-[54px] items-center gap-3">

@@ -4,6 +4,7 @@ import familyHero from "@/logo/Farmacias-banner.gif";
 
 export function Hero() {
   return (
+    // Approved Homepage Layout - Do Not Redesign
     <section className="relative overflow-hidden bg-gradient-to-br from-white via-white to-[#edf7f5]">
       <div className="grid gap-8 px-6 py-10 sm:px-9 lg:min-h-[560px] lg:grid-cols-[minmax(0,0.4fr)_minmax(0,0.3fr)_minmax(0,0.3fr)] lg:items-stretch lg:gap-6 lg:px-10 lg:py-5">
         <div className="relative z-10 flex flex-col justify-center py-4 lg:py-12">
@@ -43,6 +44,7 @@ export function Hero() {
 
 function MapPanel() {
   return (
+    // Approved Homepage Layout - Do Not Redesign
     <div className="relative min-h-[420px] overflow-hidden rounded-2xl bg-[#e7f0ed] shadow-[0_18px_50px_rgba(15,23,42,0.11)] ring-1 ring-slate-200 lg:min-h-[480px] lg:self-end">
       <div className="absolute inset-0 opacity-80">
         <div className="absolute inset-0 bg-[linear-gradient(35deg,transparent_23%,rgba(255,255,255,0.92)_24%,rgba(255,255,255,0.92)_26%,transparent_27%,transparent_64%,rgba(255,255,255,0.92)_65%,rgba(255,255,255,0.92)_67%,transparent_68%),linear-gradient(105deg,transparent_18%,rgba(255,255,255,0.75)_19%,rgba(255,255,255,0.75)_21%,transparent_22%,transparent_58%,rgba(255,255,255,0.75)_59%,rgba(255,255,255,0.75)_61%,transparent_62%)] bg-[length:150px_120px]" />
