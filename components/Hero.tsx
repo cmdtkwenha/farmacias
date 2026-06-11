@@ -1,13 +1,12 @@
 import Image from "next/image";
 import { SearchBar } from "@/components/SearchBar";
-import familyHero from "@/logo/family-hero.gif";
+import familyHero from "@/logo/Farmacias-banner.gif";
 
 export function Hero() {
   return (
     <section className="relative overflow-hidden bg-gradient-to-br from-white via-white to-[#edf7f5]">
-      <div className="grid min-h-[560px] gap-8 px-6 py-10 sm:px-9 lg:grid-cols-[1.38fr_1fr] lg:px-10 lg:py-5 xl:grid-cols-[1.32fr_1fr]">
-        <div className="relative grid min-h-[500px] lg:grid-cols-[0.96fr_1.04fr]">
-          <div className="relative z-10 flex flex-col justify-center py-4 lg:py-12">
+      <div className="grid gap-8 px-6 py-10 sm:px-9 lg:min-h-[560px] lg:grid-cols-[minmax(0,0.4fr)_minmax(0,0.3fr)_minmax(0,0.3fr)] lg:items-stretch lg:gap-6 lg:px-10 lg:py-5">
+        <div className="relative z-10 flex flex-col justify-center py-4 lg:py-12">
             <h1 className="max-w-[500px] text-5xl font-black leading-[1.05] tracking-normal text-slate-950 sm:text-6xl lg:text-[64px]">
               Encontre.
               <span className="block text-[#007a63]">Reserve.</span>
@@ -17,35 +16,21 @@ export function Hero() {
               Encontre medicamentos e produtos de saúde em farmácias de confiança perto de si.
               Reserve online e recolha na farmácia.
             </p>
-            <SearchBar />
-          </div>
+          <SearchBar />
+        </div>
 
-          <div className="relative min-h-[360px] lg:min-h-[500px]">
-            <div className="absolute left-1/2 top-5 h-[430px] w-[430px] -translate-x-1/2 rounded-full bg-[#dff3ef] lg:-translate-y-10" />
-            <div className="absolute inset-x-0 bottom-0 top-0 z-10 flex items-end justify-center">
-              <div className="relative h-[360px] w-full max-w-[540px] -translate-y-8 drop-shadow-[0_28px_45px_rgba(15,23,42,0.18)] sm:h-[430px] lg:h-[520px] lg:-translate-y-24">
+        <div className="relative flex min-h-[360px] items-end justify-center lg:min-h-[480px] lg:self-end">
+          <div className="absolute bottom-0 left-1/2 h-[360px] w-[360px] -translate-x-1/2 rounded-full bg-[#dff3ef] sm:h-[420px] sm:w-[420px] lg:h-[430px] lg:w-[430px]" />
+          <div className="relative z-10 h-[360px] w-full max-w-[390px] drop-shadow-[0_26px_42px_rgba(15,23,42,0.16)] sm:h-[420px] sm:max-w-[460px] lg:h-[480px] lg:max-w-[430px]">
                 <Image
                   src={familyHero}
                   alt="Família angolana saudável"
                   fill
                   unoptimized
                   priority
-                  className="scale-[1.34] object-contain object-bottom sm:scale-[1.42] lg:scale-[1.52]"
-                  sizes="(max-width: 1024px) 100vw, 520px"
+              className="object-contain object-bottom"
+              sizes="(max-width: 1024px) 100vw, 30vw"
                 />
-              </div>
-            </div>
-            <div className="absolute bottom-20 right-0 z-20 hidden max-w-[210px] rounded-xl bg-white p-4 shadow-[0_18px_50px_rgba(15,23,42,0.16)] ring-1 ring-slate-200 sm:block">
-              <div className="flex gap-3">
-                <span className="grid size-11 shrink-0 place-items-center rounded-xl bg-emerald-50 text-[#007a63]">
-                  <BagIcon />
-                </span>
-                <div>
-                  <p className="text-sm font-black text-slate-950">Reserva fácil</p>
-                  <p className="mt-1 text-xs font-medium leading-5 text-slate-500">Reserve o medicamento em poucos passos</p>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
 
@@ -58,7 +43,7 @@ export function Hero() {
 
 function MapPanel() {
   return (
-    <div className="relative my-auto min-h-[420px] overflow-hidden rounded-2xl bg-[#e7f0ed] shadow-[0_18px_50px_rgba(15,23,42,0.11)] ring-1 ring-slate-200 lg:min-h-[480px]">
+    <div className="relative min-h-[420px] overflow-hidden rounded-2xl bg-[#e7f0ed] shadow-[0_18px_50px_rgba(15,23,42,0.11)] ring-1 ring-slate-200 lg:min-h-[480px] lg:self-end">
       <div className="absolute inset-0 opacity-80">
         <div className="absolute inset-0 bg-[linear-gradient(35deg,transparent_23%,rgba(255,255,255,0.92)_24%,rgba(255,255,255,0.92)_26%,transparent_27%,transparent_64%,rgba(255,255,255,0.92)_65%,rgba(255,255,255,0.92)_67%,transparent_68%),linear-gradient(105deg,transparent_18%,rgba(255,255,255,0.75)_19%,rgba(255,255,255,0.75)_21%,transparent_22%,transparent_58%,rgba(255,255,255,0.75)_59%,rgba(255,255,255,0.75)_61%,transparent_62%)] bg-[length:150px_120px]" />
         <div className="absolute left-10 top-24 h-48 w-48 rounded-full bg-sky-100/80 blur-sm" />
@@ -161,16 +146,6 @@ function MapMarker({ className, pin = false }: { className: string; pin?: boolea
     <span className={`absolute z-20 grid size-9 place-items-center rounded-full bg-[#007a63] text-white shadow-lg ring-4 ring-white ${className}`}>
       {pin ? <PinMarkerIcon /> : <CrossIcon />}
     </span>
-  );
-}
-
-function BagIcon() {
-  return (
-    <svg aria-hidden="true" className="size-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-      <path d="M8 8V6a4 4 0 0 1 8 0v2" />
-      <path d="M5 8h14l-1 12H6L5 8Z" />
-      <path d="M12 12v4M10 14h4" />
-    </svg>
   );
 }
 
